@@ -1,1 +1,14 @@
-<p>paciente works!</p>
+
+<select  name="s1" #s1="ngModel" [(ngModel)]="primerSintoma">
+
+    <option [ngValue]="a" *ngFor="let a of arraySintomas">{{a}}</option>
+</select>
+
+<select  name="s2" #s2="ngModel" [(ngModel)]="segundoSintoma">
+
+    <option [ngValue]="a" *ngFor="let a of arraySintomas2">{{a}}</option>
+</select>
+
+<app-patologia [sintoma1]="primerSintoma" [sintoma2]="segundoSintoma" (diagnostico)="getDiagnostico($event)"></app-patologia>
+
+<p>El diagnostico para este paciente es: {{patologia}}</p>
